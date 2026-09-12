@@ -80,18 +80,29 @@
   .free .lock{display:inline-block;margin-top:16px;font-size:12px;color:var(--ink-soft);
     background:var(--paper);border:1px dashed var(--ink-line);border-radius:20px;padding:6px 14px}
 
-  /* install — 히어로 바로 아래 컴팩트 CTA */
-  .install{text-align:center;margin-top:22px}
-  .install .cta{display:inline-flex;align-items:center;justify-content:center;width:62px;height:62px;
-    border-radius:50%;background:#fff;border:1px solid var(--hair);box-shadow:0 2px 10px rgba(30,42,58,.07);
-    text-decoration:none}
-  .install .cta svg{width:32px;height:32px;display:block}
-  .install .ihelp{font-size:11.5px;color:var(--ink-soft);margin:11px auto 0;max-width:430px;line-height:1.6}
-  .install .cmds{display:flex;flex-direction:column;gap:7px;align-items:center;margin-top:10px}
-  .install .cmds code{font-family:var(--font-mono);font-size:12px;color:var(--ink);
-    background:var(--card);border:1px solid var(--hair);border-radius:8px;padding:8px 13px;
-    max-width:100%;overflow-x:auto;white-space:nowrap}
-  .install .inote{font-size:11px;color:var(--ink-soft);margin-top:13px}
+  /* install — 터미널 복사블록 패턴(실제 플러그인 페이지 관례) */
+  .install{text-align:center;margin-top:24px}
+  .install .ihd{font-family:var(--font-sans);font-size:15px;font-weight:800;color:var(--ink)}
+  .install .ihelp{font-size:11.5px;color:var(--ink-soft);margin:5px auto 0}
+  .term{max-width:520px;margin:13px auto 0;background:#221C18;border:1px solid #372E28;border-radius:12px;
+    overflow:hidden;text-align:left;box-shadow:0 5px 20px rgba(30,42,58,.10)}
+  .term .thead{display:flex;align-items:center;justify-content:space-between;
+    padding:9px 13px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07)}
+  .term .tname{font-family:var(--font-mono);font-size:12px;color:#CBB79B;letter-spacing:.02em}
+  .term .copy{font-family:var(--font-sans);font-size:11.5px;font-weight:700;color:#F0E5D5;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;
+    padding:4px 13px;cursor:pointer}
+  .term .copy:hover{background:rgba(255,255,255,.14)}
+  .term .tbody{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+  .term code{font-family:var(--font-mono);font-size:12.5px;color:#F4EDE1;white-space:nowrap;
+    overflow-x:auto;display:block}
+  .term code .pr{color:#C79A5A;user-select:none;margin-right:9px}
+  .oropen{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;
+    font-size:12.5px;color:var(--ink-soft)}
+  .oropen .cta{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;
+    border-radius:50%;background:#fff;border:1px solid var(--hair);box-shadow:0 2px 8px rgba(30,42,58,.07);text-decoration:none}
+  .oropen .cta svg{width:24px;height:24px;display:block}
+  .oropen b{color:var(--ink);font-weight:700}
   footer{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:44px;line-height:1.9}
   @media (max-width:520px){
     .quiet{grid-template-columns:1fr}
@@ -132,11 +143,18 @@
   </div>
 
   <div class="install">
-    <a class="cta" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20greyfolk99%2Fmyeonggyeong" aria-label="Claude Code에서 열기"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#D97757" stroke-width="3.1" stroke-linecap="round"><line x1="24" y1="19" x2="24" y2="6" transform="rotate(0 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(30 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(60 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(90 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(120 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(150 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(180 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(210 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(240 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(270 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(300 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(330 24 24)"/></g></svg></a>
-    <p class="ihelp">누르면 Claude Code가 열리고 설치 명령이 채워져요(Enter만 누르면 시작). 또는 직접 입력:</p>
-    <div class="cmds">
-      <code>/plugin marketplace add greyfolk99/myeonggyeong</code>
-      <code>/plugin install myeonggyeong@myeonggyeong</code>
+    <div class="ihd">설치</div>
+    <p class="ihelp">Claude Code에 아래 두 줄을 붙여넣으면 끝이에요.</p>
+    <div class="term">
+      <div class="thead"><span class="tname">myeonggyeong</span><button class="copy" onclick="mgCopy(this)">복사</button></div>
+      <div class="tbody">
+        <code><span class="pr">›</span>/plugin marketplace add greyfolk99/myeonggyeong</code>
+        <code><span class="pr">›</span>/plugin install myeonggyeong@myeonggyeong</code>
+      </div>
+    </div>
+    <div class="oropen">
+      <a class="cta" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20greyfolk99%2Fmyeonggyeong" aria-label="Claude Code에서 열기"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#D97757" stroke-width="3.1" stroke-linecap="round"><line x1="24" y1="19" x2="24" y2="6" transform="rotate(0 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(30 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(60 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(90 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(120 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(150 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(180 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(210 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(240 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(270 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(300 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(330 24 24)"/></g></svg></a>
+      <span>또는 눌러서 <b>Claude Code에서 바로 열기</b></span>
     </div>
   </div>
 
@@ -186,5 +204,8 @@
     ⓒ myeonggyeong
   </footer>
 </div>
+<script>
+function mgCopy(b){var t="/plugin marketplace add greyfolk99/myeonggyeong\n/plugin install myeonggyeong@myeonggyeong";navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent="복사됨 ✓";setTimeout(function(){b.textContent=o;},1500);});}
+</script>
 </body>
 </html>
