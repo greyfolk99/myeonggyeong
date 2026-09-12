@@ -11,25 +11,30 @@
 <link rel="stylesheet" href="tokens.css">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);
-    line-height:1.65;-webkit-font-smoothing:antialiased}
+  body{font-family:var(--font-sans);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
+    background-color:var(--paper);background-image:var(--texture-paper)}
   .wrap{max-width:680px;margin:0 auto;padding:56px 24px 72px}
+  /* 문살 띠 — 섹션 구분 포인트 */
+  .lattice{height:22px;background-image:var(--pattern-ajasal);background-repeat:repeat-x;
+    background-position:center;opacity:.9;margin:40px auto;max-width:440px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
 
   /* hero */
   .hero{text-align:center;padding:6px 0 8px}
   .hero img.logo{width:172px;height:172px}
-  .hero h1{font-size:clamp(28px,5.4vw,40px);font-weight:800;line-height:1.32;
-    margin:16px 0 12px;letter-spacing:-.015em}
+  .hero h1{font-family:var(--font-brush);font-size:clamp(34px,6.4vw,50px);font-weight:600;line-height:1.28;
+    margin:14px 0 14px;letter-spacing:.01em}
   .hero .sub{font-size:15px;color:var(--ink-soft);line-height:1.7;max-width:420px;margin:0 auto}
   /* feature menu — 기능 단위 타일 */
   .menu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:30px}
   .feat{background:var(--card);border:1px solid var(--ink-line);border-radius:14px;
     padding:20px 16px 17px;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center}
-  .feat .seal{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--ink);
+  .feat .seal{font-family:var(--font-brush);font-size:26px;font-weight:600;color:var(--ink);
     width:52px;height:52px;line-height:50px;border:1px solid var(--ink-line);border-radius:50%;
     margin-bottom:12px;background:var(--paper)}
   .feat.soon .seal{color:var(--ink-soft);opacity:.6}
-  .feat b{font-size:16px;font-weight:800}
+  .feat b{font-family:var(--font-brush);font-size:19px;font-weight:600;letter-spacing:.02em}
   .feat .en{font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-top:2px}
   .feat p{font-size:12.5px;color:var(--ink-soft);margin-top:9px;line-height:1.6;flex:1}
   .feat .tag{margin-top:12px;font-size:11px;font-weight:700;border-radius:20px;padding:3px 11px}
@@ -63,8 +68,10 @@
 
   /* free */
   .free{text-align:center;background:var(--card);border:1px solid var(--ink-line);
-    border-radius:16px;padding:32px 24px;margin-top:34px}
-  .free h2{font-size:clamp(22px,4.6vw,30px);font-weight:800;letter-spacing:-.01em}
+    border-radius:16px;padding:0 24px 30px;margin-top:34px;overflow:hidden}
+  .free .cap{height:20px;background-image:var(--pattern-ajasal);background-repeat:repeat-x;
+    background-position:center;margin:0 -24px 26px;opacity:.75}
+  .free h2{font-family:var(--font-brush);font-size:clamp(26px,5.2vw,34px);font-weight:600;letter-spacing:.02em}
   .free p{color:var(--ink-soft);font-size:14.5px;margin-top:8px}
   .free .lock{display:inline-block;margin-top:16px;font-size:12px;color:var(--ink-soft);
     background:var(--paper);border:1px dashed var(--ink-line);border-radius:20px;padding:6px 14px}
@@ -82,7 +89,7 @@
 
   <div class="hero">
     <img class="logo" src="assets/logo-transparent.png" alt="명경 明鏡">
-    <h1>나의 여덟 글자를,<br>한 편의 이야기로</h1>
+    <h1>운명을 비추는 거울</h1>
     <div class="sub">문헌을 따르고, 개수가 아니라 구조를 보고, 정확한 만세력 위에서 —<br>웹툰으로 읽어주는 무료 사주 리포트, 명경 明鏡</div>
 
     <div class="menu">
@@ -110,6 +117,8 @@
     </div>
     <div class="howto">지금은 <b>Claude Code · Codex CLI</b>에서 — <code>/myeonggyeong:saju</code> · <code>/myeonggyeong:gunghap</code><br>ChatGPT · Claude 앱 플러그인은 준비 중</div>
   </div>
+
+  <div class="lattice"></div>
 
   <div class="lead">
     <div class="kicker">AI 사주, 이게 문제였죠</div>
@@ -155,6 +164,7 @@
   </div>
 
   <div class="free">
+    <div class="cap"></div>
     <h2>그리고, 무료입니다</h2>
     <p>웹툰으로 읽는 나의 여덟 글자 — 지금은 Claude Code에서, 곧 어디서나.</p>
     <div class="lock">궁합은 상대가 직접 참여해야 열립니다 — 없는 정보를 만들어 가리지 않아요</div>
