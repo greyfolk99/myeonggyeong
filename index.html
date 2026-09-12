@@ -3,32 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>명경(明鏡) — 측정하는 사주</title>
-<meta name="description" content="사진이 아니라 측정. 몇 번을 봐도 같은 결과. 모든 문장에 근거.">
+<title>명경(明鏡) — 사진이 아니라, 측정입니다</title>
+<meta name="description" content="무료 웹툰형 사주 리포트. 몇 번을 봐도 같은 결과, 모든 문장에 근거, 갈리는 해석은 갈린다고.">
 <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="tokens.css">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);
-    display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
-  .brand{margin-bottom:18px}
-  .brand img{width:150px;height:150px}
-  h1{font-size:var(--fs-display);font-weight:var(--fw-display);line-height:1.35;margin-bottom:12px}
-  p{font-size:var(--fs-body);color:var(--ink-soft);line-height:var(--lh-body)}
+  body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.6}
+  .wrap{max-width:720px;margin:0 auto;padding:48px 24px 70px}
+  /* hero */
+  .hero{text-align:center;padding:10px 0 30px}
+  .hero img.logo{width:180px;height:180px}
+  .hero h1{font-size:clamp(30px,6vw,44px);font-weight:var(--fw-display);line-height:1.3;margin:18px 0 10px;letter-spacing:-.01em}
+  .hero .sub{font-size:16px;color:var(--ink-soft)}
   .mono{font-family:var(--font-mono);color:var(--measure);font-weight:700}
-  .soon{display:inline-block;margin-top:22px;border:1.5px dashed var(--ink-soft);
-    border-radius:var(--r-chip);padding:6px 14px;font-size:var(--fs-note);color:var(--ink-soft)}
+  .ways{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .way{background:#fff;border:2px solid var(--ink);border-radius:var(--r-card);
+    padding:11px 18px;text-align:left;position:relative}
+  .way b{display:block;font-size:15px}
+  .way span{font-size:var(--fs-note);color:var(--ink-soft)}
+  .way em{position:absolute;top:-9px;right:10px;font-style:normal;font-size:10px;font-weight:700;
+    background:var(--ink);color:var(--paper);border-radius:10px;padding:1px 8px}
+  .meander{height:14px;background-image:var(--pattern-meander);background-repeat:repeat-x;margin:44px auto;max-width:420px}
+  /* phrases */
+  .ph{padding:34px 0;border-bottom:1.5px dashed var(--line)}
+  .ph:last-of-type{border-bottom:0}
+  .ph h2{font-size:clamp(23px,4.6vw,32px);font-weight:800;line-height:1.35;letter-spacing:-.01em}
+  .ph p{margin-top:8px;font-size:15px;color:var(--ink-soft);line-height:1.75}
+  .ph.right{text-align:right}
+  .ph .num{font-family:var(--font-mono);font-size:12px;color:var(--measure);font-weight:700;letter-spacing:.18em;display:block;margin-bottom:8px}
+  .ph b{color:var(--ink)}
+  /* free */
+  .free{text-align:center;background:#fff;border:2px solid var(--ink);border-radius:var(--r-card);
+    padding:30px 22px;margin-top:44px}
+  .free h2{font-size:clamp(24px,5vw,34px);font-weight:800}
+  .free p{color:var(--ink-soft);font-size:15px;margin-top:6px}
+  .soon{display:inline-block;margin-top:16px;border:1.5px dashed var(--ink-soft);
+    border-radius:var(--r-chip);padding:5px 13px;font-size:var(--fs-note);color:var(--ink-soft)}
+  footer{text-align:center;font-size:var(--fs-note);color:var(--ink-soft);margin-top:46px;line-height:1.9}
 </style>
 </head>
 <body>
-  <main>
-    <div class="brand"><img src="assets/logo-transparent.png" alt="명경 明鏡"></div>
-    <h1>사진이 아니라, <span class="mono">측정</span>입니다</h1>
-    <p>몇 번을 봐도 같은 결과 · 모든 문장에 근거<br>갈리는 해석은 갈린다고 말해드립니다</p>
-    <div class="soon">리포트 준비 중</div>
-  </main>
+<div class="wrap">
+
+  <div class="hero">
+    <img class="logo" src="assets/logo-transparent.png" alt="명경 明鏡">
+    <h1>사진이 아니라,<br><span class="mono">측정</span>입니다</h1>
+    <div class="sub">무료 웹툰형 사주 리포트 · 명경 明鏡</div>
+    <div class="ways">
+      <div class="way"><em>준비 중</em><b>ChatGPT · Claude 앱에서</b><span>플러그인으로 대화하며 바로 받기</span></div>
+      <div class="way"><em>지금 가능</em><b>Claude Code · Codex CLI에서</b><span>스킬 실행 → 웹툰 리포트로</span></div>
+    </div>
+  </div>
+
+  <div class="meander"></div>
+
+  <div class="ph">
+    <span class="num">01</span>
+    <h2>몇 번을 봐도,<br>같은 결과.</h2>
+    <p>볼 때마다 달라지는 풀이는 팔지 않습니다. 같은 생시라면 언제 물어도 같은 답 — 계산이니까요.</p>
+  </div>
+
+  <div class="ph right">
+    <span class="num">02</span>
+    <h2>모든 문장에,<br>근거가 붙습니다.</h2>
+    <p>근거 없는 문장은 아예 만들어지지 않습니다. 만세력은 진태양시까지 보정합니다.</p>
+  </div>
+
+  <div class="ph">
+    <span class="num">03</span>
+    <h2>갈리는 해석은,<br>갈린다고 말합니다.</h2>
+    <p>유파마다 판단이 다른 지점을 "100% 정통"이라는 말로 덮지 않습니다. 경계는 경계라고 적습니다.</p>
+  </div>
+
+  <div class="ph right">
+    <span class="num">04</span>
+    <h2>겁을 팔지 않습니다.</h2>
+    <p>나쁜 소식도 잉크색 그대로 — 공포 대신 대처를 함께 적습니다. 그래서 뭐 어쩌라고, 가 없게.</p>
+  </div>
+
+  <div class="ph">
+    <span class="num">05</span>
+    <h2>얼굴은 업로드가 아니라,<br>실측입니다.</h2>
+    <p>곧 열리는 관상 — 사진은 기기 안에만 있고, 서버로 가는 건 좌표뿐. 카메라로 재서 숫자로 보여드립니다.</p>
+  </div>
+
+  <div class="free">
+    <h2>그리고, 무료입니다.</h2>
+    <p>웹툰으로 읽는 나의 여덟 글자 — 지금은 Claude Code에서, 곧 어디서나.</p>
+    <div class="soon">궁합은 상대가 직접 참여해야 열립니다 — 없는 정보를 만들어 가리지 않아요</div>
+  </div>
+
+  <footer>
+    명경 明鏡 — 밝은 거울처럼, 비추는 대로<br>
+    ⓒ myeonggyeong
+  </footer>
+</div>
 </body>
 </html>
