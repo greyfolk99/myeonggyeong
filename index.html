@@ -48,8 +48,14 @@
 
   /* section label */
   .lead{text-align:center;margin:46px 0 4px}
-  .lead .kicker{font-family:var(--font-sans);font-size:clamp(16px,3.4vw,20px);
-    font-weight:800;color:var(--ink)}
+  .sectitle{display:flex;align-items:center;justify-content:center;gap:13px;
+    font-family:var(--font-sans);font-size:clamp(15px,3.2vw,19px);font-weight:800;color:var(--ink)}
+  .sectitle span{padding:0 2px}
+  .sectitle .orn{position:relative;flex:none;width:36px;height:1px;background:var(--ink-line)}
+  .sectitle .orn::before{content:"";position:absolute;top:-2.5px;width:6px;height:6px;
+    background:var(--accent-brown);transform:rotate(45deg)}
+  .sectitle .orn.l::before{right:-1px}
+  .sectitle .orn.r::before{left:-1px}
   .lead h2{font-size:16px;font-weight:800;line-height:1.45;margin-top:6px;letter-spacing:-.01em;color:var(--ink-soft)}
 
   /* principles — secondary, compact rows */
@@ -80,29 +86,29 @@
   .free .lock{display:inline-block;margin-top:16px;font-size:12px;color:var(--ink-soft);
     background:var(--paper);border:1px dashed var(--ink-line);border-radius:20px;padding:6px 14px}
 
-  /* install — 터미널 복사블록 패턴(실제 플러그인 페이지 관례) */
-  .install{text-align:center;margin-top:24px}
-  .install .ihd{font-family:var(--font-sans);font-size:15px;font-weight:800;color:var(--ink)}
-  .install .ihelp{font-size:11.5px;color:var(--ink-soft);margin:5px auto 0}
-  .term{max-width:520px;margin:13px auto 0;background:#221C18;border:1px solid #372E28;border-radius:12px;
-    overflow:hidden;text-align:left;box-shadow:0 5px 20px rgba(30,42,58,.10)}
-  .term .thead{display:flex;align-items:center;justify-content:space-between;
-    padding:9px 13px;background:rgba(255,255,255,.035);border-bottom:1px solid rgba(255,255,255,.07)}
-  .term .tname{font-family:var(--font-mono);font-size:12px;color:#CBB79B;letter-spacing:.02em}
-  .term .copy{font-family:var(--font-sans);font-size:11.5px;font-weight:700;color:#F0E5D5;
-    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:7px;
-    padding:4px 13px;cursor:pointer}
-  .term .copy:hover{background:rgba(255,255,255,.14)}
-  .term .tbody{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
-  .term code{font-family:var(--font-mono);font-size:12.5px;color:#F4EDE1;white-space:nowrap;
-    overflow-x:auto;display:block}
-  .term code .pr{color:#C79A5A;user-select:none;margin-right:9px}
-  .oropen{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;
-    font-size:12.5px;color:var(--ink-soft)}
-  .oropen .cta{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;
-    border-radius:50%;background:#fff;border:1px solid var(--hair);box-shadow:0 2px 8px rgba(30,42,58,.07);text-decoration:none}
-  .oropen .cta svg{width:24px;height:24px;display:block}
-  .oropen b{color:var(--ink);font-weight:700}
+  /* install — 클라이언트별 항목(좌측정렬) */
+  .install{max-width:560px;margin:26px auto 0;text-align:left}
+  .inswrap{margin-top:14px}
+  .insitem{padding:14px 2px;border-top:1px solid var(--hair)}
+  .insitem:first-child{border-top:none}
+  .insh{font-family:var(--font-sans);font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .insnote{font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.6}
+  .insnote a{color:var(--accent-brown);font-weight:700;text-decoration:none;border-bottom:1px solid var(--ink-line)}
+  .cmdrow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--hair);
+    border-radius:9px;padding:6px 7px 6px 12px;margin-top:8px}
+  .cmdrow code{flex:1;font-family:var(--font-mono);font-size:12.5px;color:var(--ink);
+    white-space:nowrap;overflow-x:auto}
+  .cmdrow .copy{flex:none;font-family:var(--font-sans);font-size:11px;font-weight:700;color:var(--accent-brown);
+    background:transparent;border:1px solid var(--ink-line);border-radius:6px;padding:4px 11px;cursor:pointer}
+  .cmdrow .copy:hover{background:rgba(124,91,52,.08)}
+  .openlink{display:inline-flex;align-items:center;gap:8px;margin-top:11px;font-size:12.5px;
+    color:var(--ink-soft);text-decoration:none}
+  .openlink img{width:26px;height:26px;border-radius:50%;border:1px solid var(--hair);object-fit:cover}
+  .openlink b{color:var(--ink);font-weight:700}
+  .dls{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap}
+  .dl{font-family:var(--font-sans);font-size:12px;font-weight:700;text-decoration:none;color:var(--accent-brown);
+    background:var(--card);border:1px solid var(--ink-line);border-radius:8px;padding:7px 14px}
+  .dl:hover{background:rgba(124,91,52,.06)}
   footer{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:44px;line-height:1.9}
   @media (max-width:520px){
     .quiet{grid-template-columns:1fr}
@@ -143,25 +149,42 @@
   </div>
 
   <div class="install">
-    <div class="ihd">설치</div>
-    <p class="ihelp">Claude Code에 아래 두 줄을 붙여넣으면 끝이에요.</p>
-    <div class="term">
-      <div class="thead"><span class="tname">myeonggyeong</span><button class="copy" onclick="mgCopy(this)">복사</button></div>
-      <div class="tbody">
-        <code><span class="pr">›</span>/plugin marketplace add greyfolk99/myeonggyeong</code>
-        <code><span class="pr">›</span>/plugin install myeonggyeong@myeonggyeong</code>
+    <div class="sectitle"><i class="orn l"></i><span>설치</span><i class="orn r"></i></div>
+
+    <div class="inswrap">
+      <div class="insitem">
+        <h3 class="insh">Claude Code</h3>
+        <div class="cmdrow"><code>/plugin marketplace add greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'/plugin marketplace add greyfolk99/myeonggyeong')">복사</button></div>
+        <div class="cmdrow"><code>/plugin install myeonggyeong@myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'/plugin install myeonggyeong@myeonggyeong')">복사</button></div>
+        <a class="openlink" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20greyfolk99%2Fmyeonggyeong"><img src="assets/char-avatar.png" alt="">또는 눌러서 <b>바로 열기</b></a>
       </div>
-    </div>
-    <div class="oropen">
-      <a class="cta" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20greyfolk99%2Fmyeonggyeong" aria-label="Claude Code에서 열기"><svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g stroke="#D97757" stroke-width="3.1" stroke-linecap="round"><line x1="24" y1="19" x2="24" y2="6" transform="rotate(0 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(30 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(60 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(90 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(120 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(150 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(180 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(210 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(240 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(270 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(300 24 24)"/><line x1="24" y1="19" x2="24" y2="6" transform="rotate(330 24 24)"/></g></svg></a>
-      <span>또는 눌러서 <b>Claude Code에서 바로 열기</b></span>
+
+      <div class="insitem">
+        <h3 class="insh">Claude 데스크탑 · 웹 앱</h3>
+        <p class="insnote">설정 &gt; Skills에서 ‘코드 실행’을 켠 뒤, 아래 스킬 파일을 업로드하세요. (Pro·Max 이상)</p>
+        <div class="dls">
+          <a class="dl" href="assets/myeonggyeong-saju.zip" download>사주 스킬 받기</a>
+          <a class="dl" href="assets/myeonggyeong-gunghap.zip" download>궁합 스킬 받기</a>
+        </div>
+      </div>
+
+      <div class="insitem">
+        <h3 class="insh">ChatGPT</h3>
+        <p class="insnote">ChatGPT·Codex 공용 플러그인 디렉토리 <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a> 등재 예정 — 심사를 거쳐 올라가면 거기서 바로 설치돼요.</p>
+      </div>
+
+      <div class="insitem">
+        <h3 class="insh">Codex</h3>
+        <p class="insnote">Codex 세션 안에서 아래 한 줄을 실행하세요.</p>
+        <div class="cmdrow"><code>$skill-installer install https://github.com/greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'$skill-installer install https://github.com/greyfolk99/myeonggyeong')">복사</button></div>
+      </div>
     </div>
   </div>
 
   <div class="lattice"></div>
 
   <div class="lead">
-    <div class="kicker">사주 플랫폼 및 AI 기반 사주 이게 문제였죠</div>
+    <div class="sectitle"><i class="orn l"></i><span>사주 플랫폼 · AI 기반 사주 이게 문제였죠</span><i class="orn r"></i></div>
   </div>
 
   <div class="prin">
@@ -205,7 +228,7 @@
   </footer>
 </div>
 <script>
-function mgCopy(b){var t="/plugin marketplace add greyfolk99/myeonggyeong\n/plugin install myeonggyeong@myeonggyeong";navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent="복사됨 ✓";setTimeout(function(){b.textContent=o;},1500);});}
+function mgCopyEl(b,t){navigator.clipboard.writeText(t).then(function(){var o=b.textContent;b.textContent="복사됨 ✓";setTimeout(function(){b.textContent=o;},1400);});}
 </script>
 </body>
 </html>
