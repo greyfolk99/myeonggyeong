@@ -12,7 +12,7 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:var(--font-sans);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
-    background-color:var(--paper);background-image:var(--texture-paper)}
+    background-color:var(--paper);background-image:var(--texture-hanji),var(--texture-paper)}
   .wrap{max-width:680px;margin:0 auto;padding:56px 24px 72px}
   /* 문살 띠 — 섹션 구분 포인트 */
   .lattice{height:22px;background-image:var(--pattern-ajasal);background-repeat:repeat-x;
@@ -46,7 +46,9 @@
 
   /* section label */
   .lead{text-align:center;margin:46px 0 4px}
-  .lead .kicker{font-size:11.5px;letter-spacing:.16em;color:var(--ink-soft);font-weight:700}
+  .lead .kicker{display:inline-block;font-family:var(--font-brush);font-size:clamp(20px,4vw,26px);
+    font-weight:600;letter-spacing:.01em;color:var(--ink);padding:8px 22px;
+    background:var(--brush-band) center/100% 100% no-repeat}
   .lead h2{font-size:16px;font-weight:800;line-height:1.45;margin-top:6px;letter-spacing:-.01em;color:var(--ink-soft)}
 
   /* principles — secondary, compact rows */
@@ -58,6 +60,7 @@
   .row h3{font-size:15px;font-weight:800;letter-spacing:-.01em;display:inline}
   .row .was{font-size:11.5px;color:var(--ink-soft);margin-top:3px}
   .row .was s{color:#a79f8d;text-decoration-thickness:1px}
+  .row .why{font-size:12.5px;color:#96907f;line-height:1.55;margin-top:4px}
   .row p{font-size:13px;color:#5a5f67;line-height:1.62;margin-top:4px}
 
   /* quiet supporting pair */
@@ -76,6 +79,20 @@
   .free .lock{display:inline-block;margin-top:16px;font-size:12px;color:var(--ink-soft);
     background:var(--paper);border:1px dashed var(--ink-line);border-radius:20px;padding:6px 14px}
 
+  /* install */
+  .install{text-align:center;background:var(--card);border:1px solid var(--ink-line);
+    border-radius:16px;padding:0 22px 28px;margin-top:40px;overflow:hidden}
+  .install .cap{height:20px;background-image:var(--pattern-ajasal);background-repeat:repeat-x;
+    background-position:center;margin:0 -22px 24px;opacity:.75}
+  .install h2{font-family:var(--font-brush);font-size:clamp(24px,4.8vw,30px);font-weight:600;letter-spacing:.02em}
+  .install .ilead{color:var(--ink-soft);font-size:14px;margin-top:6px}
+  .install .cmds{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:16px}
+  .install .cmds code{font-family:var(--font-mono);font-size:12.5px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--hair);border-radius:8px;padding:9px 14px;
+    max-width:100%;overflow-x:auto;white-space:nowrap}
+  .install .ghbtn{display:inline-block;margin-top:18px;font-size:13px;font-weight:700;text-decoration:none;
+    color:#fff;background:var(--measure);border-radius:22px;padding:10px 22px}
+  .install .inote{font-size:12px;color:var(--ink-soft);margin-top:16px}
   footer{text-align:center;font-size:12px;color:var(--ink-soft);margin-top:44px;line-height:1.9}
   @media (max-width:520px){
     .quiet{grid-template-columns:1fr}
@@ -113,7 +130,6 @@
         <p>얼굴을 비추면 운명을 봐드려요</p>
       </div>
     </div>
-    <div class="howto">지금은 <b>Claude Code · Codex</b>에서 쓸 수 있어요<br>ChatGPT · Claude 앱 버전도 곧 나와요</div>
   </div>
 
   <div class="lattice"></div>
@@ -127,6 +143,7 @@
       <div class="n">一</div>
       <div>
         <h3>근거나 설명이 불충분한 사주풀이</h3>
+        <p class="why">왜 그런 결과인지 모르면, 맞는 말인지 확인할 수도 납득할 수도 없어요.</p>
         <p>명경은 풀이마다 명리학적 근거와 설명을 함께 보여줘서, 충분히 이해하고 받아들일 수 있게 합니다.</p>
       </div>
     </div>
@@ -134,6 +151,7 @@
       <div class="n">二</div>
       <div>
         <h3>오행의 ‘개수’만 판단</h3>
+        <p class="why">개수만 세면 오행이 서로 어떻게 작용하는지를 놓쳐 실제와 어긋나요.</p>
         <p>명경은 오행이 몇 개인지만 보지 않고, 방대한 자료로 구한 더 깊은 분석까지 있는 그대로 보여줍니다.</p>
       </div>
     </div>
@@ -141,6 +159,7 @@
       <div class="n">三</div>
       <div>
         <h3>부정확한 만세력과 명리이론</h3>
+        <p class="why">토대가 틀리면 그 위의 풀이는 아무리 그럴듯해도 처음부터 어긋나요.</p>
         <p>명경은 만세력이 정확하고, 문헌적 사실관계에 근거해 그대로 보여줍니다.</p>
       </div>
     </div>
@@ -148,9 +167,22 @@
       <div class="n">四</div>
       <div>
         <h3>궁금하게 만들어 복채를 유도</h3>
+        <p class="why">돈이 목적이 되면 정작 궁금한 답은 결제 뒤로 계속 미뤄져요.</p>
         <p>정작 그들은 미리 짜인 템플릿에 끼워 맞출 뿐, 실제 인공지능의 판단은 들어가지 않아요. 명경은 무료로, 당신의 사주를 인공지능이 직접 읽어 있는 그대로 보여줍니다.</p>
       </div>
     </div>
+  </div>
+
+  <div class="install">
+    <div class="cap"></div>
+    <h2>지금 써보기</h2>
+    <p class="ilead">Claude Code에서 명령 두 줄이면 바로 — 무료예요.</p>
+    <div class="cmds">
+      <code>/plugin marketplace add greyfolk99/myeonggyeong</code>
+      <code>/plugin install myeonggyeong@myeonggyeong</code>
+    </div>
+    <a class="ghbtn" href="https://github.com/greyfolk99/myeonggyeong" target="_blank" rel="noopener">GitHub 저장소 열기 ↗</a>
+    <p class="inote">ChatGPT · Claude 앱 버전은 준비 중이에요.</p>
   </div>
 
   <footer>
