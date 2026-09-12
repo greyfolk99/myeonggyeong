@@ -1,7 +1,7 @@
 {
   "name": "myeonggyeong",
-  "description": "명경(明鏡) — 생년월일시로 사주를 계산해 웹툰형 HTML 리포트를 생성",
-  "version": "0.9.0",
+  "description": "명경(明鏡) — 사주·궁합 리포트. 나의 사주(saju)·연애 궁합(gunghap) 스킬",
+  "version": "0.10.0",
   "homepage": "https://greyfolk99.github.io/myeonggyeong/",
   "license": "MIT"
 }

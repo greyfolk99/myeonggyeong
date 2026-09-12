@@ -21,15 +21,23 @@
   .hero h1{font-size:clamp(28px,5.4vw,40px);font-weight:800;line-height:1.32;
     margin:16px 0 12px;letter-spacing:-.015em}
   .hero .sub{font-size:15px;color:var(--ink-soft);line-height:1.7;max-width:420px;margin:0 auto}
-  .ways{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px}
-  .way{background:var(--card);border:1px solid var(--ink-line);border-radius:12px;
-    padding:11px 16px;text-align:left;position:relative;min-width:210px}
-  .way b{display:block;font-size:14.5px;font-weight:700}
-  .way span{font-size:12px;color:var(--ink-soft)}
-  .way em{position:absolute;top:-8px;right:12px;font-style:normal;font-size:10px;font-weight:700;
-    letter-spacing:.02em;background:var(--paper);border:1px solid var(--ink-line);
-    color:var(--ink-soft);border-radius:10px;padding:1px 8px}
-  .way.live em{background:var(--measure);border-color:var(--measure);color:#fff}
+  /* feature menu — 기능 단위 타일 */
+  .menu{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:30px}
+  .feat{background:var(--card);border:1px solid var(--ink-line);border-radius:14px;
+    padding:20px 16px 17px;text-align:center;position:relative;display:flex;flex-direction:column;align-items:center}
+  .feat .seal{font-family:var(--font-serif);font-size:24px;font-weight:600;color:var(--ink);
+    width:52px;height:52px;line-height:50px;border:1px solid var(--ink-line);border-radius:50%;
+    margin-bottom:12px;background:var(--paper)}
+  .feat.soon .seal{color:var(--ink-soft);opacity:.6}
+  .feat b{font-size:16px;font-weight:800}
+  .feat .en{font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-top:2px}
+  .feat p{font-size:12.5px;color:var(--ink-soft);margin-top:9px;line-height:1.6;flex:1}
+  .feat .tag{margin-top:12px;font-size:11px;font-weight:700;border-radius:20px;padding:3px 11px}
+  .feat .tag.live{background:var(--measure);color:#fff}
+  .feat .tag.wait{background:var(--paper);border:1px solid var(--ink-line);color:var(--ink-soft)}
+  .howto{margin-top:16px;font-size:12.5px;color:var(--ink-soft);text-align:center;line-height:1.7}
+  .howto code{font-family:var(--font-mono);background:var(--card);border:1px solid var(--hair);
+    border-radius:6px;padding:1px 7px;color:var(--ink);font-size:12px}
 
   /* section label */
   .lead{text-align:center;margin:52px 0 8px}
@@ -66,6 +74,7 @@
   @media (max-width:520px){
     .quiet{grid-template-columns:1fr}
     .row{grid-template-columns:40px 1fr;gap:14px}
+    .menu{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -76,10 +85,31 @@
     <img class="logo" src="assets/logo-transparent.png" alt="명경 明鏡">
     <h1>사주는 흐리게<br>말하지 않아야 합니다</h1>
     <div class="sub">문헌을 따르고, 개수가 아니라 구조를 보고, 정확한 만세력 위에서 —<br>웹툰으로 읽어주는 무료 사주 리포트, 명경 明鏡</div>
-    <div class="ways">
-      <div class="way live"><em>지금 가능</em><b>Claude Code · Codex CLI</b><span>스킬 실행 → 웹툰 리포트로</span></div>
-      <div class="way"><em>준비 중</em><b>ChatGPT · Claude 앱</b><span>플러그인으로 대화하며 바로</span></div>
+
+    <div class="menu">
+      <div class="feat">
+        <div class="seal">命</div>
+        <b>나의 사주</b>
+        <div class="en">EIGHT CHARACTERS</div>
+        <p>나의 여덟 글자를 이야기로 — 기질·처방·관계·큰 흐름까지</p>
+        <div class="tag live">지금 가능</div>
+      </div>
+      <div class="feat">
+        <div class="seal">緣</div>
+        <b>연애 궁합</b>
+        <div class="en">TWO CHARTS</div>
+        <p>두 사람의 사주로 — 끌림·보완·부딪히는 온도와 다루는 법</p>
+        <div class="tag live">지금 가능</div>
+      </div>
+      <div class="feat soon">
+        <div class="seal">相</div>
+        <b>관상</b>
+        <div class="en">MEASURED FACE</div>
+        <p>카메라로 재는 얼굴 — 사진 업로드가 아니라 실측으로</p>
+        <div class="tag wait">준비 중</div>
+      </div>
     </div>
+    <div class="howto">지금은 <b>Claude Code · Codex CLI</b>에서 — <code>/myeonggyeong:saju</code> · <code>/myeonggyeong:gunghap</code><br>ChatGPT · Claude 앱 플러그인은 준비 중</div>
   </div>
 
   <div class="lead">
