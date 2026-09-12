@@ -1,0 +1,23 @@
+{
+  "name": "myeonggyeong",
+  "owner": {
+    "name": "myeonggyeong",
+    "url": "https://greyfolk99.github.io/myeonggyeong/"
+  },
+  "description": "명경(明鏡) — 측정하는 사주. 웹툰형 사주·관상 리포트 플러그인",
+  "plugins": [
+    {
+      "name": "myeonggyeong",
+      "source": "./plugins/myeonggyeong",
+      "description": "생년월일시로 사주를 계산해 웹툰형 HTML 리포트를 생성합니다 (실동작)",
+      "version": "0.7.0",
+      "homepage": "https://greyfolk99.github.io/myeonggyeong/",
+      "license": "MIT",
+      "keywords": [
+        "saju",
+        "사주",
+        "리포트"
+      ]
+    }
+  ]
+}

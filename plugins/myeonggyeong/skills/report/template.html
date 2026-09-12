@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>명경 — {{REPORT_TITLE}}</title>
+<style>
+  :root{
+    --bg:#f0e0c6; --ink:#2b2b33; --sub:#6d6355; --navy:#1f3a5f; --gold:#8a6a1f; --line:#d9c6a4;
+    --wood:#3e8e5a; --fire:#c94f42; --earth:#b8902f; --metal:#7d818c; --water:#3d6ea5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Apple SD Gothic Neo",Pretendard,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+  .wrap{max-width:480px;margin:0 auto;padding:26px 0 50px}
+  .brand{text-align:center;color:var(--gold);letter-spacing:.35em;font-size:.78em;margin-bottom:6px}
+  h1{text-align:center;font-size:1.35em;font-weight:800;padding:0 22px}
+  .meta{text-align:center;color:var(--sub);font-size:.84em;margin-bottom:18px}
+  .toon{width:100%;display:block}
+  .bubble{position:relative;background:#fff;border:3px solid var(--ink);border-radius:18px;
+    padding:13px 16px;margin:20px 22px;font-size:.95em;font-weight:600;color:var(--ink)}
+  .bubble:after,.bubble:before{content:"";position:absolute;left:50%;transform:translateX(-50%);
+    border:11px solid transparent;border-bottom:0}
+  .bubble:before{bottom:-14px;border-top-color:var(--ink)}
+  .bubble:after{bottom:-9px;border-top-color:#fff}
+  .narr{background:rgba(255,255,255,.6);border:1.5px solid var(--ink);border-radius:4px;
+    margin:18px 22px;padding:12px 15px;font-size:.92em;color:#3a3a41;line-height:1.85}
+  .prolog{background:rgba(255,255,255,.6);border:1.5px solid var(--ink);border-radius:4px;
+    margin:18px 22px;padding:12px 15px;font-size:.85em;color:#3a3a41;line-height:1.9}
+  .prolog b{display:block;font-size:.9em;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
+  .sect{margin:8px 0 26px}
+  .sect h2{font-size:.78em;color:var(--sub);margin:0 22px 10px;letter-spacing:.12em;
+    border-bottom:1.5px solid var(--line);display:inline-block;padding-bottom:2px}
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;text-align:center;margin:0 22px}
+  .pl{border:2px solid var(--ink);border-radius:12px;padding:10px 4px;background:#fff}
+  .pl .lab{font-size:.66em;color:var(--sub);margin-bottom:5px}
+  .pl .g{font-size:1.5em;font-weight:800;line-height:1.25}
+  .pl .tg{font-size:.64em;color:var(--sub);margin-top:5px}
+  .e-wood{color:var(--wood)} .e-fire{color:var(--fire)} .e-earth{color:var(--earth)} .e-metal{color:var(--metal)} .e-water{color:var(--water)}
+  .note{font-size:.74em;color:var(--sub);margin:10px 22px 0}
+  .bar-row{display:flex;align-items:center;gap:9px;margin:0 22px 8px;font-size:.88em}
+  .bar-row .el{width:46px;font-weight:800}
+  .bar-track{flex:1;background:rgba(255,255,255,.55);border:1.5px solid var(--line);border-radius:7px;height:16px;overflow:hidden}
+  .bar-fill{height:100%}
+  .bar-val{width:50px;text-align:right;color:var(--sub);font-size:.85em}
+  .scale5{display:grid;grid-template-columns:repeat(5,1fr);margin:16px 22px 0;text-align:center}
+  .scale5 .dot{display:inline-block;width:13px;height:13px;border-radius:50%;background:rgba(255,255,255,.7);border:1.5px solid var(--line)}
+  .scale5 .on .dot{background:var(--navy);border-color:var(--navy);box-shadow:0 0 0 4px rgba(31,58,95,.18)}
+  .scale5 em{display:block;font-style:normal;font-size:.7em;color:var(--sub);margin-top:4px}
+  .scale5 .on em{color:var(--navy);font-weight:800}
+  .ys{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 22px 0}
+  .ys .box{border:2px solid var(--ink);border-radius:12px;padding:11px;background:#fff}
+  .ys .box b{display:block;font-size:.76em;color:var(--navy);margin-bottom:5px}
+  .ys .glyphs{font-size:1.25em;font-weight:800;margin-bottom:3px}
+  .ys .exp{font-size:.7em;color:var(--sub);line-height:1.5}
+  .rel{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 22px}
+  .rel .r{background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 10px;font-size:.8em}
+  .rel .r.clash{border-style:dashed}
+  .rel .r b{font-size:1.05em}
+  .rel .r span{display:block;color:var(--sub);font-size:.86em;margin-top:2px}
+  .stage{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;text-align:center;margin:0 22px}
+  .stage .s{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:8px 4px}
+  .stage .s .lab{font-size:.64em;color:var(--sub)}
+  .stage .s .v{font-size:1em;font-weight:800;color:var(--navy)}
+  .stage .s .k{font-size:.62em;color:var(--sub);margin-top:2px}
+  .sin{display:flex;flex-wrap:wrap;gap:7px;margin:0 22px}
+  .sin .c{background:#fff;border:1.5px solid var(--ink);border-radius:16px;padding:4px 12px;font-size:.78em}
+  .sin .c small{color:var(--sub)}
+  p.body{font-size:.92em;margin:10px 22px;color:#3a3a41}
+  h3.sub{font-size:.8em;color:var(--navy);margin:16px 22px 2px;font-weight:800}
+  h3.sub small{color:var(--sub);font-weight:400;font-size:.85em;margin-left:6px}
+  .teaser{background:rgba(255,255,255,.4);border:2px dashed var(--sub);border-radius:12px;
+    margin:22px;padding:13px 15px;font-size:.82em;color:var(--sub);line-height:1.8}
+  .teaser b{color:var(--ink)}
+  footer{text-align:center;font-size:.74em;color:var(--sub);margin-top:24px;line-height:1.9;padding:0 22px}
+  footer .cta{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:12px;margin-top:10px;color:var(--ink)}
+  footer .cta b{color:var(--navy)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">명경 明鏡</div>
+  <h1>{{REPORT_TITLE}}</h1>
+  <div class="meta">{{META_LINE}}</div>
+
+  <div class="prolog"><b>프롤로그 · 이 이야기를 읽는 법</b>
+    모든 문장엔 근거가 붙습니다 · 개수가 아니라 구조를 봅니다 · 만세력은 진태양시까지 보정합니다 · 갈리는 해석은 갈린다고 말해드립니다
+  </div>
+
+  <div class="narr">{{NARR_INTRO}}</div>
+
+  <img class="toon" src="{{TOON_IMG_SRC}}" alt="">
+
+  <div class="bubble">{{BUBBLE_1}}</div>
+
+  <div class="sect">
+    <h2>1장 · 여덟 글자</h2>
+    <div class="pillars">
+{{PILLARS_HTML}}
+    </div>
+    <div class="note">{{NOTE_LINE}}</div>
+  </div>
+
+  <div class="sect">
+    <h2>2장 · 기질 — 일간과 다섯 기운</h2>
+    <p class="body">{{ILJU_BODY}}</p>
+{{ELEMENT_BARS_HTML}}
+    <div class="note">막대=지장간 포함, 괄호=겉으로 드러난 글자 수 · 백분율 아님</div>
+{{SCALE5_HTML}}
+    <p class="body">{{STRENGTH_BODY}}</p>
+  </div>
+
+  <div class="bubble">{{BUBBLE_2}}</div>
+
+  <div class="sect">
+    <h2>3장 · 처방 — 필요한 기운</h2>
+    <div class="ys">
+{{YONGSIN_BOXES_HTML}}
+    </div>
+    <p class="body">{{YONGSIN_BODY}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>4장 · 관계의 구조 — 십성</h2>
+    <p class="body">{{SIPSEONG_BODY}}</p>
+    <h3 class="sub">글자들의 사건 <small>합·충·해</small></h3>
+    <div class="rel">
+{{RELATIONS_HTML}}
+    </div>
+    <p class="body">{{RELATIONS_BODY}}</p>
+    <h3 class="sub">사회에서의 나</h3>
+    <p class="body">{{SOCIAL_BODY}}</p>
+    <h3 class="sub">가족의 자리</h3>
+    <p class="body">{{FAMILY_BODY}}</p>
+    <h3 class="sub">매력 포인트</h3>
+    <p class="body">{{CHARM_BODY}}</p>
+    <h3 class="sub">시기별 흐름 <small>뿌리·무대·나·결실</small></h3>
+    <p class="body">{{SIPSEONG_TIMELINE}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>5장 · 흐름의 자리 — 십이운성</h2>
+    <div class="stage">
+{{STAGES_HTML}}
+    </div>
+    <h3 class="sub">종합</h3>
+    <p class="body">{{STAGES_BODY}}</p>
+    <h3 class="sub">시기별로 읽으면</h3>
+    <p class="body">{{STAGES_TIMELINE}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>6장 · 글자에 붙은 이름표 — 신살과 귀인</h2>
+    <div class="sin">
+{{SINSAL_HTML}}
+    </div>
+    <p class="body">{{SINSAL_BODY}}</p>
+  </div>
+
+  <div class="narr">{{NARR_LIFE}}</div>
+
+  <div class="sect">
+    <h2>7장 · 재물의 결</h2>
+    <h3 class="sub">총운</h3>
+    <p class="body">{{WEALTH_BODY}}</p>
+    <h3 class="sub">시기별 흐름</h3>
+    <p class="body">{{WEALTH_TIMELINE}}</p>
+    <h3 class="sub">소비의 습관</h3>
+    <p class="body">{{WEALTH_SPENDING}}</p>
+    <h3 class="sub">전략</h3>
+    <p class="body">{{WEALTH_STRATEGY}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>8장 · 연애와 결혼</h2>
+    <h3 class="sub">연애의 성향</h3>
+    <p class="body">{{LOVE_BODY}}</p>
+    <h3 class="sub">조심할 관계</h3>
+    <p class="body">{{LOVE_CAUTION}}</p>
+    <h3 class="sub">조언</h3>
+    <p class="body">{{LOVE_ADVICE}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>9장 · 일과 커리어</h2>
+    <h3 class="sub">재능</h3>
+    <p class="body">{{CAREER_TALENT}}</p>
+    <h3 class="sub">구조가 맞는 일</h3>
+    <p class="body">{{CAREER_BODY}}</p>
+    <h3 class="sub">도와줄 사람 · 멀리할 자리</h3>
+    <p class="body">{{CAREER_PEOPLE}}</p>
+  </div>
+
+  <div class="sect">
+    <h2>10장 · 몸과 마음의 습관</h2>
+    <h3 class="sub">타고난 결</h3>
+    <p class="body">{{HEALTH_BODY}}</p>
+    <h3 class="sub">돌봐줄 곳 <small>전통 오행 배속 기준</small></h3>
+    <p class="body">{{HEALTH_CARE}}</p>
+    <h3 class="sub">맞는 움직임과 식탁</h3>
+    <p class="body">{{HEALTH_HABIT}}</p>
+  </div>
+
+  <div class="teaser"><b>곧 열리는 장</b><br>11장 큰 흐름(대운) · 12장 다가올 5년 · 13장 관상 실측 — 없는 정보를 지어내지 않기에, 준비되면 열립니다.</div>
+
+  <div class="sect">
+    <h2>마무리 · 물어본 것에 답해드립니다</h2>
+    <p class="body">{{QNA_BODY}}</p>
+  </div>
+
+  <div class="bubble">{{BUBBLE_3}}</div>
+
+  <div class="narr">{{NARR_CLOSING}}</div>
+
+  <footer>
+    모든 문장은 계산된 팩트에서만 · 몇 번을 봐도 같은 결과 · 어느 페이지를 펴도 모순 없음
+    <div class="cta"><b>명경 明鏡 — 밝은 거울처럼, 비추는 대로</b><br>https://greyfolk99.github.io/myeonggyeong/</div>
+  </footer>
+</div>
+</body>
+</html>

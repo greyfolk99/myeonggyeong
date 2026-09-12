@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>명경 디자인 토큰</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);padding:28px 20px 50px;max-width:var(--w-content);margin:0 auto;line-height:1.6}
+  h1{font-size:var(--fs-display);font-weight:var(--fw-display);margin-bottom:2px}
+  .sub{color:var(--ink-soft);font-size:13px;margin-bottom:26px}
+  h2{font-size:var(--fs-h2);font-weight:var(--fw-h2);margin:26px 0 12px;border-bottom:2px solid var(--ink);display:inline-block;padding-bottom:3px}
+  .rule{font-size:var(--fs-note);color:var(--ink-soft);margin:-6px 0 12px}
+  /* 스와치 */
+  .sw{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .sw .c{border-radius:var(--r-chip);border:1px solid var(--line);overflow:hidden;font-size:10px;text-align:center}
+  .sw .c i{display:block;height:40px}
+  .sw .c em{display:block;font-style:normal;padding:4px 2px;background:#fff;color:var(--ink-soft)}
+  /* 타입 */
+  .type div{margin-bottom:8px}
+  .t-display{font-size:var(--fs-display);font-weight:var(--fw-display)}
+  .t-h2{font-size:var(--fs-h2);font-weight:var(--fw-h2)}
+  .t-hook{font-size:var(--fs-hook);font-weight:var(--fw-hook)}
+  .t-body{font-size:var(--fs-body)}
+  .t-note{font-size:var(--fs-note);color:var(--ink-soft)}
+  .t-mono{font-family:var(--font-mono);color:var(--measure);font-weight:700}
+  .t-serif{font-family:var(--font-serif)}
+  /* 컴포넌트 */
+  .card{background:#fff;border:2px solid var(--ink);border-radius:var(--r-card);padding:var(--sp-4);margin-bottom:var(--sp-3)}
+  .factnote{border-top:1.5px dashed var(--line);margin-top:var(--sp-3);padding-top:var(--sp-2);font-size:var(--fs-note);color:var(--ink-soft)}
+  .chip{display:inline-block;font-family:var(--font-mono);background:var(--paper-deep);border:1.5px solid var(--line);border-radius:var(--r-chip);padding:3px 10px;font-size:14px;font-weight:700;color:var(--measure);margin-right:6px}
+  .chip small{color:var(--ink-soft);font-weight:400}
+  .bubble{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:var(--r-bubble);padding:var(--sp-3) var(--sp-4);font-size:var(--fs-hook);font-weight:var(--fw-hook);margin-bottom:18px}
+  .bubble:before{content:"";position:absolute;left:40px;bottom:-13px;border:10px solid transparent;border-top-color:var(--ink);border-bottom:0}
+  .bubble:after{content:"";position:absolute;left:42px;bottom:-8px;border:8px solid transparent;border-top-color:#fff;border-bottom:0}
+  .badge{display:inline-block;font-size:11px;font-weight:700;color:var(--ink);background:var(--paper-deep);border:1.5px solid var(--ink);border-radius:20px;padding:2px 10px}
+  .lock{background:var(--paper-deep);border:2px dashed var(--ink-soft);border-radius:var(--r-card);padding:var(--sp-4);color:var(--ink-soft);font-size:var(--fs-body)}
+  .lock b{color:var(--ink)}
+  .el{font-weight:800}
+</style>
+</head>
+<body>
+  <h1>디자인 토큰 v0.1</h1>
+  <div class="sub">컨셉: 정밀한 측정을 다정하게 전달한다 — 계측의 신뢰 × 상담의 온기</div>
+
+  <h2>컬러</h2>
+  <div class="rule">규칙: 오행 5색은 데이터 표시 전용(장식 금지) · 경고·흉살도 잉크색(공포색 없음)</div>
+  <div class="sw">
+    <div class="c"><i style="background:var(--paper)"></i><em>paper</em></div>
+    <div class="c"><i style="background:var(--paper-deep)"></i><em>paper-deep</em></div>
+    <div class="c"><i style="background:var(--ink)"></i><em>ink</em></div>
+    <div class="c"><i style="background:var(--ink-soft)"></i><em>ink-soft</em></div>
+    <div class="c"><i style="background:var(--measure)"></i><em>measure</em></div>
+  </div>
+  <div style="height:8px"></div>
+  <div class="sw">
+    <div class="c"><i style="background:var(--wood)"></i><em>木 데이터</em></div>
+    <div class="c"><i style="background:var(--fire)"></i><em>火 데이터</em></div>
+    <div class="c"><i style="background:var(--earth)"></i><em>土 데이터</em></div>
+    <div class="c"><i style="background:var(--metal)"></i><em>金 데이터</em></div>
+    <div class="c"><i style="background:var(--water)"></i><em>水 데이터</em></div>
+  </div>
+
+  <h2>타이포</h2>
+  <div class="rule">측정 숫자=모노+오차 병기 · 한자=명조 병기 · 본문 산세리프</div>
+  <div class="type">
+    <div class="t-display">디스플레이 27 — 희정님의 리포트</div>
+    <div class="t-h2">섹션 17 — 오행 분포</div>
+    <div class="t-hook">훅 15.5 — 물이 많은 여름 사주예요</div>
+    <div class="t-body">본문 14.5 — 일간 임수가 비견의 도움을 받는 구조입니다. 한자는 <span class="t-serif">正財(정재)</span>처럼 명조로 병기합니다.</div>
+    <div class="t-note">근거 11.5 — 근거: 억부 신강 · 통근 연·일·시</div>
+    <div class="t-body">측정값: <span class="t-mono">14.0cm ±5%</span> <span class="t-mono">+4.2°</span></div>
+  </div>
+
+  <h2>컴포넌트 계약</h2>
+  <div class="rule">FactNote 슬롯이 비면 렌더 금지 — "근거 없는 문장 없음"의 물성</div>
+
+  <div class="bubble">저는 캐릭터의 목소리예요 — 항상 캐릭터 컷과 짝으로 다녀요 (Bubble)</div>
+
+  <div class="card">
+    <b>주장 카드 (Card + FactNote)</b>
+    <p style="font-size:var(--fs-body);margin-top:6px">일간과 정재(正財)가 합 — 현실의 가치를 붙잡는 성향입니다.</p>
+    <div class="factnote">근거: 丁壬合 월간-일간 · bazi-sheet v2 analysis.relations[1]</div>
+  </div>
+
+  <div class="card">
+    <b>측정 칩 (MeasureChip)</b><br>
+    <span class="chip">14.0cm <small>±5%</small></span>
+    <span class="chip">+4.2° <small>눈꼬리</small></span>
+    <span class="chip">1.42% <small>비대칭</small></span>
+    <div class="factnote">측정: MediaPipe 468점 · 정면 6프레임 중앙값</div>
+  </div>
+
+  <div class="card">
+    <b>경계 배지 (MarginalBadge)</b> — 신강 <span class="badge">경계 · 달리 보는 유파 있음</span>
+    <div class="factnote">근거: 득령 X · 득지 O · 득세 7:6 (마진 얇음)</div>
+  </div>
+
+  <div class="lock"><b>정직한 잠금 (HonestLock)</b> — 궁합은 상대가 직접 촬영해야 열립니다. 우리는 없는 정보를 만들어 가리지 않아요.</div>
+
+  <h2>전통 요소 <small style="font-weight:400;font-size:11px;color:var(--ink-soft)">v0.2 추가</small></h2>
+  <div class="rule">규칙: 궁서=장 제목·의례 요소 전용(본문 금지) · 패턴=구분선·헤더 포인트 전용(전면 도배 금지)</div>
+
+  <div class="card">
+    <b>궁서 — 장 제목·로고타입</b>
+    <div style="font-family:var(--font-brush);font-size:22px;margin-top:8px">第三章 · 처방 — 용신</div>
+    <div style="display:flex;gap:18px;margin-top:12px;align-items:baseline">
+      <span style="font-family:var(--font-brush);font-size:30px">가늠</span>
+      <span style="font-family:var(--font-brush);font-size:30px">命尺</span>
+      <span style="font-family:var(--font-brush);font-size:30px">눈금</span>
+      <span class="t-note">← 이름 후보 로고타입 미리보기</span>
+    </div>
+  </div>
+
+  <div class="card" style="padding:0;overflow:hidden">
+    <div style="height:14px;background-image:var(--pattern-meander);background-repeat:repeat-x;margin:12px 16px 0"></div>
+    <div style="padding:8px 16px 4px"><b>회문(回紋) 띠</b> — 섹션 헤더·챕터 경계의 포인트 장식</div>
+    <div style="height:44px;background-image:var(--pattern-lattice);margin:8px 16px 0;border-radius:6px"></div>
+    <div style="padding:6px 16px 14px"><b>문살 격자</b> — 잠금 카드·표지 배경 텍스처 (저농도만)</div>
+  </div>
+
+  <div style="margin-top:14px" class="t-note">모션: 기본 없음 · 측정 카운트업 600ms만 허용 — "움직임=지금 재는 중"</div>
+</body>
+</html>
