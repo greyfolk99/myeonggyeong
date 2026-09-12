@@ -92,6 +92,8 @@
   .insitem{padding:14px 2px;border-top:1px solid var(--hair)}
   .insitem:first-child{border-top:none}
   .insh{font-family:var(--font-sans);font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .insh .tag{margin-left:8px;font-size:10.5px;font-weight:700;color:var(--ink-soft);
+    background:var(--card);border:1px solid var(--hair);border-radius:20px;padding:2px 9px;vertical-align:1px}
   .insnote{font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.6}
   .insnote a{color:var(--accent-brown);font-weight:700;text-decoration:none;border-bottom:1px solid var(--ink-line)}
   .cmdrow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--hair);
@@ -153,30 +155,27 @@
 
     <div class="inswrap">
       <div class="insitem">
-        <h3 class="insh">Claude Code</h3>
+        <h3 class="insh">Claude Code <span class="tag">터미널</span></h3>
         <div class="cmdrow"><code>/plugin marketplace add greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'/plugin marketplace add greyfolk99/myeonggyeong')">복사</button></div>
         <div class="cmdrow"><code>/plugin install myeonggyeong@myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'/plugin install myeonggyeong@myeonggyeong')">복사</button></div>
         <a class="openlink" href="claude-cli://open?q=%2Fplugin%20marketplace%20add%20greyfolk99%2Fmyeonggyeong"><img src="assets/char-avatar.png" alt="">또는 눌러서 <b>바로 열기</b></a>
       </div>
 
       <div class="insitem">
+        <h3 class="insh">Codex <span class="tag">터미널</span></h3>
+        <div class="cmdrow"><code>codex plugin marketplace add greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'codex plugin marketplace add greyfolk99/myeonggyeong')">복사</button></div>
+        <div class="cmdrow"><code>codex plugin add myeonggyeong@myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'codex plugin add myeonggyeong@myeonggyeong')">복사</button></div>
+      </div>
+
+      <div class="insitem">
         <h3 class="insh">Claude 데스크탑 · 웹 앱</h3>
-        <p class="insnote">설정 &gt; Skills에서 ‘코드 실행’을 켠 뒤, 아래 스킬 파일을 업로드하세요. (Pro·Max 이상)</p>
-        <div class="dls">
-          <a class="dl" href="assets/myeonggyeong-saju.zip" download>사주 스킬 받기</a>
-          <a class="dl" href="assets/myeonggyeong-gunghap.zip" download>궁합 스킬 받기</a>
-        </div>
+        <p class="insnote">Customize &gt; Plugins &gt; ＋ 에서 아래를 마켓플레이스로 추가하고 Sync → Browse에서 설치하세요.</p>
+        <div class="cmdrow"><code>greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'greyfolk99/myeonggyeong')">복사</button></div>
       </div>
 
       <div class="insitem">
         <h3 class="insh">ChatGPT</h3>
-        <p class="insnote">ChatGPT·Codex 공용 플러그인 디렉토리 <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a> 등재 예정 — 심사를 거쳐 올라가면 거기서 바로 설치돼요.</p>
-      </div>
-
-      <div class="insitem">
-        <h3 class="insh">Codex</h3>
-        <p class="insnote">Codex 세션 안에서 아래 한 줄을 실행하세요.</p>
-        <div class="cmdrow"><code>$skill-installer install https://github.com/greyfolk99/myeonggyeong</code><button class="copy" onclick="mgCopyEl(this,'$skill-installer install https://github.com/greyfolk99/myeonggyeong')">복사</button></div>
+        <p class="insnote">ChatGPT·Codex 공용 플러그인 디렉토리 <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a> 등재 경로로 제공돼요(심사 필요).</p>
       </div>
     </div>
   </div>
