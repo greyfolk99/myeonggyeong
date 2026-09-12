@@ -9,8 +9,8 @@
     {
       "name": "myeonggyeong",
       "source": "./plugins/myeonggyeong",
-      "description": "생년월일시로 사주를 계산해 웹툰형 HTML 리포트를 생성합니다 (실동작)",
-      "version": "0.7.0",
+      "description": "사주를 계산해 이야기로 풀어줍니다 — 핵심 리딩 먼저, 궁금한 장만 깊이",
+      "version": "0.8.0",
       "homepage": "https://greyfolk99.github.io/myeonggyeong/",
       "license": "MIT",
       "keywords": [
