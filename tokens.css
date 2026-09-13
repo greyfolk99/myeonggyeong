@@ -22,10 +22,10 @@
   --metal: #8A8F99;
   --water: #3D6EA5;
   /* 타이포 */
-  --font-sans:  Pretendard, "Apple SD Gothic Neo", -apple-system, sans-serif;
+  --font-sans:  "Pretendard", "Apple SD Gothic Neo", -apple-system, sans-serif; /* 웹폰트 로드 */
   --font-mono:  "SF Mono", "JetBrains Mono", ui-monospace, monospace; /* 측정 숫자 전용 */
-  --font-serif: "Noto Serif KR", "Apple Myungjo", serif;              /* 한자 병기 전용 */
-  --font-brush: "GungSeo", "Gungsuh", "궁서", "Noto Serif KR", serif; /* 궁서 — 장 제목·의례 요소 전용, 본문 금지 */
+  --font-serif: "Nanum Myeongjo", "Apple Myungjo", serif;            /* 한자 병기 전용 (웹폰트) */
+  --font-brush: "Nanum Myeongjo", "Apple Myungjo", serif;            /* 제목·의례 요소 — 트렌디 명조(웹폰트). 시스템 궁서 폐기 */
   --fs-display: 27px;  --fw-display: 800;
   --fs-h2:      17px;  --fw-h2:      800;
   --fs-hook:    15.5px;--fw-hook:    600;
